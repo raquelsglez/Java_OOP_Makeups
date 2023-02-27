@@ -6,8 +6,6 @@ import Modules.makeup.classes.Basic;
 import Modules.makeup.classes.Singleton;
 import Modules.makeup.utils.find_functions;
 
-
-//Hola
 public class create_functions {
 
     public static void create_basic(Basic bc){
