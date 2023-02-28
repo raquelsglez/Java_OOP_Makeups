@@ -36,7 +36,7 @@ public class functions_makeup {
         return new Basic(id);
     }
 
-    public static Basic ask_read_basic_id() {
+    public static Basic read_basic_id() {
 
         String id = JOptionPane.showInputDialog(null, "Identificador", "¿Cuál es el identificador del servicio que desea ver?", JOptionPane.QUESTION_MESSAGE);
 
