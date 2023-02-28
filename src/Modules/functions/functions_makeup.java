@@ -45,4 +45,13 @@ public class functions_makeup {
         return new Basic(id);
     }
     
+    public static Basic delete_basic_id() {
+
+        String id = JOptionPane.showInputDialog(null, "Identificador", "¿Cuál es el identificador del servicio que desea eliminar?", JOptionPane.QUESTION_MESSAGE);
+
+        Singleton.id = id;
+
+        return new Basic(id);
+    }
+    
 }

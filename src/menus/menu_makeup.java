@@ -3,6 +3,7 @@ package menus;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import Modules.functions.CRUD.create_functions;
+import Modules.functions.CRUD.delete_functions;
 import Modules.functions.CRUD.read_functions;
 import Modules.makeup.classes.Basic;
 import Modules.makeup.classes.Singleton;
@@ -64,7 +65,7 @@ public class menu_makeup {
 
                         case 3:
 
-                             JOptionPane.showMessageDialog(null, "Delete Básico");
+                            delete_functions.delete_basic(bc);
 
                              key_menu_crud = true;
 
