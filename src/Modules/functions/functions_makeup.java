@@ -1,7 +1,8 @@
 package Modules.functions;
 
-import javax.swing.JOptionPane;
 import Modules.makeup.classes.Singleton;
+import Modules.makeup.utils.data_functions;
+import Utils.validates;
 import Modules.makeup.classes.Basic;
 
 
@@ -11,16 +12,17 @@ public class functions_makeup {
 
 		String id = Singleton.id;
 
-        String customer_name = JOptionPane.showInputDialog(null," Nombre del cliente: ");
+        String customer_name = data_functions.ask_customer_name("¿A qué nombre quiere que esté el servicio?", "Nombre");
         
-        String number_string = JOptionPane.showInputDialog(null, " ¿Qué precio va a tener el servicio? ");
-        int price = Integer.parseInt(number_string);
+        int price = validates.number("¿Qué precio va a tener el servicio?", "Precio");
 
-        String place = JOptionPane.showInputDialog(null," ¿En qué lugar se realizará? ");
+        String place = validates.cad("¿En qué lugar se realizará?", "Lugar");
 
-        String time = JOptionPane.showInputDialog(null," ¿A qué hora se realizará? ");
+        String time = validates.cad("¿A qué hora se realizará?", "Hora");
 
-        String type = JOptionPane.showInputDialog(null," ¿De que tipo quieres que sea? ");
+        String[] option_type = {"Día", "Noche", "Casual"};
+
+        String type = validates.combo(option_type, "¿Qué tipo de maquillaje quieres?", "Tipo" );
 
         return new Basic(id, customer_name, price, place, time, type); 
 
@@ -29,7 +31,7 @@ public class functions_makeup {
         
     public static Basic create_basic_id() {
 
-        String id = JOptionPane.showInputDialog(null, "Identificador", "¿Que identificafor desea poner?", JOptionPane.QUESTION_MESSAGE);
+        String id = data_functions.ask_id("¿Qué identificador desea para este servicio?", "Identificador");
 
         Singleton.id = id;
 
@@ -38,7 +40,7 @@ public class functions_makeup {
 
     public static Basic read_basic_id() {
 
-        String id = JOptionPane.showInputDialog(null, "Identificador", "¿Cuál es el identificador del servicio que desea ver?", JOptionPane.QUESTION_MESSAGE);
+        String id = data_functions.ask_id("¿Cuál es el identificador del servicio que desea ver?", "Identificador");
 
         Singleton.id = id;
 
@@ -47,7 +49,7 @@ public class functions_makeup {
     
     public static Basic delete_basic_id() {
 
-        String id = JOptionPane.showInputDialog(null, "Identificador", "¿Cuál es el identificador del servicio que desea eliminar?", JOptionPane.QUESTION_MESSAGE);
+        String id = data_functions.ask_id("¿Cuál es el identificador del servicio que desea eliminar?", "Identificador");
 
         Singleton.id = id;
 
