@@ -76,9 +76,6 @@ public class functions_makeup {
             int option_menu = 0;
 			
             boolean key = false;
-			
-            Basic bc = null;
-
             do{
 
                 option_menu = buttons.menu_buttons(menu, "Seleccione la operación deseada", "Elegir opción");
