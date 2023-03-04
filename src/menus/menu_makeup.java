@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import Modules.functions.CRUD.create_functions;
 import Modules.functions.CRUD.delete_functions;
 import Modules.functions.CRUD.read_functions;
+import Modules.functions.CRUD.update_functions;
 import Modules.makeup.classes.Basic;
 import Modules.makeup.classes.Singleton;
 
@@ -57,7 +58,7 @@ public class menu_makeup {
 
                         case 2:
 
-                             JOptionPane.showMessageDialog(null, "Update Básico");
+                             update_functions.update_basic(bc);
 
                              key_menu_crud = true;
 
