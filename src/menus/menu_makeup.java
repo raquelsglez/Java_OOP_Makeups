@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import Modules.functions.CRUD.create_functions;
 import Modules.functions.CRUD.delete_functions;
+import Modules.functions.CRUD.order_functions;
 import Modules.functions.CRUD.read_functions;
 import Modules.functions.CRUD.update_functions;
 import Modules.makeup.classes.Basic;
@@ -14,7 +15,7 @@ public class menu_makeup {
     public static void main(String[] args) {
 
         String[] menu_makeup = { "Básico", "Temático", "Eventos", "Salir"};
-        String[] menu_crud = { "Create", "Read", "Update", "Delete", "Volver", "Salir"};
+        String[] menu_crud = { "Create", "Read", "Update", "Delete", "Order", "Volver", "Salir"};
         boolean key_menu_makeup = false;
         boolean key_menu_crud = false;
 
@@ -32,7 +33,7 @@ public class menu_makeup {
               
             switch(option_menu_makeup) {
 
-                case 0:
+                case 0: 
                 
                   do {
                     
@@ -40,7 +41,7 @@ public class menu_makeup {
 
                       switch(option_menu_crud) {
 
-                        case 0:
+                        case 0: //CREAR//
 
                              key_menu_crud = true;
 
@@ -48,7 +49,7 @@ public class menu_makeup {
 
                              break;
 
-                        case 1:
+                        case 1: //LEER//
                         
                              read_functions.read_basic(bc);
 
@@ -56,7 +57,7 @@ public class menu_makeup {
 
                              break;
 
-                        case 2:
+                        case 2: //CAMBIAR//
 
                              update_functions.update_basic(bc);
 
@@ -64,15 +65,23 @@ public class menu_makeup {
 
                              break;
 
-                        case 3:
+                        case 3: //ELIMINAR//
 
                             delete_functions.delete_basic(bc);
 
-                             key_menu_crud = true;
+                            key_menu_crud = true;
 
-                             break;
+                            break;
 
-                        case 4:
+                        case 4: //ORDENAR//
+
+                            order_functions.order_basic();
+
+                            key_menu_crud = true;
+                            
+                            break;
+                        
+                        case 5: //VOLVER//
 
                              JOptionPane.showMessageDialog(null, "Volver Básico");
 
@@ -80,7 +89,7 @@ public class menu_makeup {
 
                              break;
 
-                        case 5:
+                        case 6: //SALIR//
 
                             JOptionPane.showMessageDialog(null, "Salir Básico");
 
