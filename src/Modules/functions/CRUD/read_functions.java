@@ -49,7 +49,7 @@ public class read_functions {
                         
                         int location = 0;
 
-                        bc = functions_makeup.read_basic_id();
+                        bc = functions_makeup.basic_id("¿Cuál es el identificador del servicio que desea ver?");
 
 					    location = find_functions.find_basic(bc);
 

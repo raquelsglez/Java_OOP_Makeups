@@ -12,7 +12,7 @@ public class create_functions {
 
         int location = 0;
 
-        bc = functions_makeup.create_basic_id();
+        bc = functions_makeup.basic_id("¿Qué identificador desea para este servicio?");
 
         location = find_functions.find_basic(bc);
 

@@ -18,7 +18,7 @@ public class delete_functions {
 
         }else{
 
-            bc = functions_makeup.delete_basic_id();
+            bc = functions_makeup.basic_id("¿Cuál es el identificador del servicio que desea eliminar?");
 
             int location = find_functions.find_basic(bc);
 

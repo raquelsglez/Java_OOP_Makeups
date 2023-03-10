@@ -20,7 +20,7 @@ public class update_functions {
 
             int location = 0;
 
-            bc = functions_makeup.update_basic_id();
+            bc = functions_makeup.basic_id("¿Cuál es el identificador del servicio que desea cambiar?");
             
             location = find_functions.find_basic(bc);
 

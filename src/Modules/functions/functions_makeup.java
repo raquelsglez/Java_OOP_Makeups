@@ -30,42 +30,15 @@ public class functions_makeup {
 
     }
 
+    public static Basic basic_id(String message){
         
-    public static Basic create_basic_id() {
-
-        String id = data_functions.ask_id("¿Qué identificador desea para este servicio?", "Identificador");
+        String id = data_functions.ask_id(message, "Identificador");
 
         Singleton.id = id;
 
         return new Basic(id);
     }
 
-    public static Basic read_basic_id() {
-
-        String id = data_functions.ask_id("¿Cuál es el identificador del servicio que desea ver?", "Identificador");
-
-        Singleton.id = id;
-
-        return new Basic(id);
-    }
-    
-    public static Basic delete_basic_id() {
-
-        String id = data_functions.ask_id("¿Cuál es el identificador del servicio que desea eliminar?", "Identificador");
-
-        Singleton.id = id;
-
-        return new Basic(id);
-    }
-
-    public static Basic update_basic_id() {
-
-        String id = data_functions.ask_id("¿Cuál es el identificador del servicio que desea cambiar?", "Identificador");
-
-        Singleton.id = id;
-
-        return new Basic(id);
-    }
 
     public static void update(Makeup mak) {
 
