@@ -9,6 +9,7 @@ import Modules.functions.CRUD.read_functions;
 import Modules.functions.CRUD.update_functions;
 import Modules.makeup.classes.Basic;
 import Modules.makeup.classes.Singleton;
+import Modules.makeup.classes.Thematic;
 
 public class menu_makeup {
 
@@ -20,10 +21,12 @@ public class menu_makeup {
         boolean key_menu_crud = false;
 
         Singleton.basic = new ArrayList <Basic> ();
+        Singleton.thematic = new ArrayList <Thematic> ();
 
         int option_menu_makeup = 0;
         int option_menu_crud = 0;
         Basic bc = null;
+        Thematic th = null;
 
         do {
 
@@ -33,7 +36,7 @@ public class menu_makeup {
               
             switch(option_menu_makeup) {
 
-                case 0: 
+                case 0: //Basic
                 
                   do {
                     
@@ -104,7 +107,7 @@ public class menu_makeup {
 
                   break;
 
-                case 1:
+                case 1: //Thematic
 
                   do {
                     
@@ -112,9 +115,9 @@ public class menu_makeup {
 
                     switch(option_menu_crud) {
 
-                      case 0:
+                      case 0: //CREATE
 
-                           JOptionPane.showMessageDialog(null, "Create Temático");
+                           create_functions.create_thematic(th);
 
                            key_menu_crud = true;
 

@@ -1,6 +1,7 @@
 package Modules.functions;
 
 import Modules.makeup.classes.Singleton;
+import Modules.makeup.classes.Thematic;
 import Modules.makeup.utils.data_functions;
 import Utils.validates;
 import menus.buttons;
@@ -30,6 +31,27 @@ public class functions_makeup {
 
     }
 
+
+    public static Thematic create_thematic() {
+
+		String id = Singleton.id;
+
+        String customer_name = data_functions.ask_customer_name("¿A qué nombre quiere que esté el servicio?", "Nombre");
+        
+        int price = validates.number("¿Qué precio va a tener el servicio?", "Precio");
+
+        String place = validates.cad("¿En qué lugar se realizará?", "Lugar");
+
+        String time = validates.cad("¿A qué hora se realizará?", "Hora");
+
+        String[] option_thematic_type = {"Animación", "Terror", "Fantasia"};
+
+        String thematic_type = validates.combo(option_thematic_type, "¿Qué tipo de maquillaje quieres?", "Tipo" );
+
+        return new Thematic(id, customer_name, price, place, time, thematic_type); 
+
+    }
+
     public static Basic basic_id(String message){
         
         String id = data_functions.ask_id(message, "Identificador");
@@ -37,6 +59,16 @@ public class functions_makeup {
         Singleton.id = id;
 
         return new Basic(id);
+    }
+
+
+    public static Thematic thematic_id(String message){
+        
+        String id = data_functions.ask_id(message, "Identificador");
+
+        Singleton.id = id;
+
+        return new Thematic(id);
     }
 
 
