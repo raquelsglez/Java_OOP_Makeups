@@ -28,210 +28,215 @@ public class menu_makeup {
         Basic bc = null;
         Thematic th = null;
 
-        do {
+          do {
 
-          option_menu_makeup = buttons.menu_buttons(menu_makeup, "Seleccione una opción", "Maquillajes");
+           option_menu_makeup = buttons.menu_buttons(menu_makeup, "Seleccione una opción", "Maquillajes");
 
-          key_menu_makeup = true;
+           key_menu_makeup = true;
               
-            switch(option_menu_makeup) {
+               switch(option_menu_makeup) {
 
-                case 0: //Basic
+                    case 0: //Basic
                 
-                  do {
+                         do {
                     
-                      option_menu_crud = buttons.menu_buttons(menu_crud, "Seleccione una acción", "Básico");
+                           option_menu_crud = buttons.menu_buttons(menu_crud, "Seleccione una acción", "Básico");
 
-                      key_menu_crud = true;
+                           key_menu_crud = true;
 
-                      switch(option_menu_crud) {
+                              switch(option_menu_crud){
 
-                        case 0: //CREAR//
+                                   case 0: //CREAR//
 
-                             create_functions.create_basic(bc);
+                                     create_functions.create_basic(bc);
 
-                             break;
+                                     break;
 
-                        case 1: //LEER//
+                                   case 1: //LEER//
                         
-                             read_functions.read_basic(bc);
+                                     read_functions.read_basic(bc);
 
-                             break;
+                                     break;
 
-                        case 2: //CAMBIAR//
+                                   case 2: //CAMBIAR//
 
-                             update_functions.update_basic(bc);
+                                     update_functions.update_basic(bc);
 
-                             break;
+                                     break;
 
-                        case 3: //ELIMINAR//
+                                   case 3: //ELIMINAR//
 
-                            delete_functions.delete_basic(bc);
+                                     delete_functions.delete_basic(bc);
 
-                            break;
+                                     break;
 
-                        case 4: //ORDENAR//
+                                   case 4: //ORDENAR//
 
-                            order_functions.order_basic();
+                                     order_functions.order_basic();
                             
-                            break;
+                                     break;
                         
-                        case 5: //VOLVER//
+                                   case 5: //VOLVER//
 
-                             JOptionPane.showMessageDialog(null, "Volver Básico");
+                                     JOptionPane.showMessageDialog(null, "Volver Básico");
 
-                             key_menu_crud = false;
+                                     key_menu_crud = false;
 
-                             break;
+                                     break;
 
-                        case 6: //SALIR//
+                                   case 6: //SALIR//
 
-                            JOptionPane.showMessageDialog(null, "Salir Básico");
+                                     JOptionPane.showMessageDialog(null, "Salir Básico");
 
-                            key_menu_crud = false;
-                            key_menu_makeup = false;
+                                     key_menu_crud = false;
+                                     key_menu_makeup = false;
 
-                            break;
+                                     break;
 
-                      }
+                              }
 
-                  }while(key_menu_crud != false);
+                         }while(key_menu_crud != false);
 
-                  break;
+                     break;
 
-                case 1: //Thematic
+                    case 1: //Thematic
 
-                  do {
+                         do {
                     
-                    option_menu_crud = buttons.menu_buttons(menu_crud, "Seleccione una acción", "Temático");
+                          option_menu_crud = buttons.menu_buttons(menu_crud, "Seleccione una acción", "Temático");
 
-                    key_menu_crud = true;
+                          key_menu_crud = true;
 
-                    switch(option_menu_crud) {
+                              switch(option_menu_crud) {
 
-                      case 0: //CREATE
+                                   case 0: //CREATE
 
-                           create_functions.create_thematic(th);
+                                    create_functions.create_thematic(th);
 
-                           break;
+                                    break;
 
-                      case 1: //READ
+                                   case 1: //READ
 
-                           read_functions.read_thematic(th);
+                                    read_functions.read_thematic(th);
 
-                           break;
+                                    break;
 
-                      case 2: //UPDATE
+                                   case 2: //UPDATE
 
-                           update_functions.update_thematic(th);
+                                    update_functions.update_thematic(th);
 
-                           break;
+                                    break;
 
-                      case 3: //DELETE
+                                   case 3: //DELETE
 
-                           delete_functions.delete_thematic(th);
+                                    delete_functions.delete_thematic(th);
 
-                           break;
+                                    break;
 
-                      case 4: //VOLVER
+                                   case 4: //ORDENAR//
 
-                           JOptionPane.showMessageDialog(null, "Volver Temático");
+                                    order_functions.order_thematic();
+                           
+                                    break;
 
-                           key_menu_crud = false;
+                                   case 5: //VOLVER
 
-                           break;
+                                    JOptionPane.showMessageDialog(null, "Volver Temático");
 
-                      case 5: //SALIR
+                                    key_menu_crud = false;
 
-                          JOptionPane.showMessageDialog(null, "Salir Temático");
+                                    break;
 
-                          key_menu_crud = false;
-                          key_menu_makeup = false;
+                                   case 6: //SALIR
 
-                          break;
+                                    JOptionPane.showMessageDialog(null, "Salir Temático");
 
-                    }
+                                    key_menu_crud = false;
+                                    key_menu_makeup = false;
 
-                }while(key_menu_crud != false);
+                                    break;
 
-                  break;
+                              }
 
-                case 2: //Events
+                         }while(key_menu_crud != false);
 
+                         break;
 
-                  do {
+                    case 2: //Events
+
+                         do {
                     
-                    option_menu_crud = buttons.menu_buttons(menu_crud, "Seleccione una acción", "Eventos");
+                          option_menu_crud = buttons.menu_buttons(menu_crud, "Seleccione una acción", "Eventos");
 
-                    switch(option_menu_crud) {
+                             switch(option_menu_crud) {
 
-                      case 0:
+                                   case 0:
 
-                           JOptionPane.showMessageDialog(null, "Create Eventos");
+                                    JOptionPane.showMessageDialog(null, "Create Eventos");
 
-                           key_menu_crud = true;
+                                    key_menu_crud = true;
 
-                           break;
+                                    break;
 
-                      case 1:
+                                   case 1:
 
-                           JOptionPane.showMessageDialog(null, "Read Eventos");
+                                    JOptionPane.showMessageDialog(null, "Read Eventos");
 
-                           key_menu_crud = true;
+                                    key_menu_crud = true;
 
-                           break;
+                                    break;
 
-                      case 2:
+                                   case 2:
 
-                           JOptionPane.showMessageDialog(null, "Update Eventos");
+                                    JOptionPane.showMessageDialog(null, "Update Eventos");
 
-                           key_menu_crud = true;
+                                    key_menu_crud = true;
 
-                           break;
+                                    break;
 
-                      case 3:
+                                   case 3:
 
-                           JOptionPane.showMessageDialog(null, "Delete Eventos");
+                                    JOptionPane.showMessageDialog(null, "Delete Eventos");
 
-                           key_menu_crud = true;
+                                    key_menu_crud = true;
 
-                           break;
+                                    break;
 
-                      case 4:
+                                   case 4:
 
-                           JOptionPane.showMessageDialog(null, "Volver Eventos");
+                                    JOptionPane.showMessageDialog(null, "Volver Eventos");
 
-                           key_menu_crud = false;
+                                    key_menu_crud = false;
 
-                           break;
+                                    break;
 
-                      case 5:
+                                   case 5:
 
-                          JOptionPane.showMessageDialog(null, "Salir Eventos");
+                                    JOptionPane.showMessageDialog(null, "Salir Eventos");
 
-                          key_menu_crud = false;
-                          key_menu_makeup = false;
+                                    key_menu_crud = false;
+                                    key_menu_makeup = false;
 
-                          break;
+                                    break;
 
-                    }
+                              }
 
-                }while(key_menu_crud != false);
+                         }while(key_menu_crud != false);
 
-                  break;
+                         break;
 
-                case 3:
+                    case 3:
 
-                  JOptionPane.showMessageDialog(null, "Salir");
+                      JOptionPane.showMessageDialog(null, "Salir");
 
-                  key_menu_makeup = false;
+                      key_menu_makeup = false;
 
-                  break;
+                      break;
+               
+               }
 
-            }
+          }while(key_menu_makeup != false);
 
-        }while(key_menu_makeup != false);
-
-    }
+     }
 
 }

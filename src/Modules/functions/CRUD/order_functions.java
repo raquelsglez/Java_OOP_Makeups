@@ -18,6 +18,7 @@ public class order_functions{
         Boolean key = false;
 
         if (Singleton.basic.isEmpty()) {
+
 			JOptionPane.showMessageDialog(null, "No existen servicios para poder ordenarlos", "Error",
 					JOptionPane.ERROR_MESSAGE);
 
@@ -27,7 +28,6 @@ public class order_functions{
 					JOptionPane.ERROR_MESSAGE);
 
         }else{
-
             do{
 
                 int option_menu = buttons.menu_buttons(menu, "Seleccione el orden que usted desee", "Elija la opción deseada");
@@ -37,7 +37,6 @@ public class order_functions{
                 switch(option_menu){
 
                     case 0:
-                       
                         Collections.sort(Singleton.basic, new id_order());
 
                         break;
@@ -55,8 +54,9 @@ public class order_functions{
                         break;
 
                     case 3:
+                        key = false;
 
-                    key = false;
+                        break;
 
                 }
 
@@ -66,8 +66,60 @@ public class order_functions{
 
     }
 
+    public static void order_thematic(){
 
+        String[] menu = {"Identificador", "Nombre del cliente", "Lugar", "Salir"};
+        Boolean key = false;
 
+        if (Singleton.thematic.isEmpty()) {
+			JOptionPane.showMessageDialog(null, "No existen servicios para poder ordenarlos", "Error",
+					JOptionPane.ERROR_MESSAGE);
 
+        }else if (Singleton.thematic.size() == 1){
+
+            JOptionPane.showMessageDialog(null, "Solo existe un servicio y por lo tanto no se puede ordenar", "Error",
+					JOptionPane.ERROR_MESSAGE);
+
+        }else{
+
+            do{
+
+                int option_menu = buttons.menu_buttons(menu, "Seleccione el orden que usted desee", "Elija la opción deseada");
+                
+                key = true;
+                
+                switch(option_menu){
+
+                    case 0:
+                       
+                        Collections.sort(Singleton.thematic, new id_order());
+
+                        break;
+
+                    case 1:
+
+                        Collections.sort(Singleton.thematic, new customer_name_order());
+                   
+                        break;
+
+                    case 2:
+
+                        Collections.sort(Singleton.thematic, new place_order());
+
+                        break;
+
+                    case 3:
+
+                        key = false;
+
+                        break;
+
+                }
+
+            }while(key != false);
+            
+        }
+
+    }
     
 }
