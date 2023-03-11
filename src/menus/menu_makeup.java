@@ -42,13 +42,13 @@ public class menu_makeup {
                     
                       option_menu_crud = buttons.menu_buttons(menu_crud, "Seleccione una acción", "Básico");
 
+                      key_menu_crud = true;
+
                       switch(option_menu_crud) {
 
                         case 0: //CREAR//
 
-                             key_menu_crud = true;
-
-                              create_functions.create_basic(bc);
+                             create_functions.create_basic(bc);
 
                              break;
 
@@ -56,15 +56,11 @@ public class menu_makeup {
                         
                              read_functions.read_basic(bc);
 
-                             key_menu_crud = true;
-
                              break;
 
                         case 2: //CAMBIAR//
 
                              update_functions.update_basic(bc);
-
-                             key_menu_crud = true;
 
                              break;
 
@@ -72,15 +68,11 @@ public class menu_makeup {
 
                             delete_functions.delete_basic(bc);
 
-                            key_menu_crud = true;
-
                             break;
 
                         case 4: //ORDENAR//
 
                             order_functions.order_basic();
-
-                            key_menu_crud = true;
                             
                             break;
                         
@@ -113,41 +105,35 @@ public class menu_makeup {
                     
                     option_menu_crud = buttons.menu_buttons(menu_crud, "Seleccione una acción", "Temático");
 
+                    key_menu_crud = true;
+
                     switch(option_menu_crud) {
 
                       case 0: //CREATE
 
                            create_functions.create_thematic(th);
 
-                           key_menu_crud = true;
+                           break;
+
+                      case 1: //READ
+
+                           read_functions.read_thematic(th);
 
                            break;
 
-                      case 1:
+                      case 2: //UPDATE
 
-                           JOptionPane.showMessageDialog(null, "Read Temático");
-
-                           key_menu_crud = true;
+                           update_functions.update_thematic(th);
 
                            break;
 
-                      case 2:
+                      case 3: //DELETE
 
-                           JOptionPane.showMessageDialog(null, "Update Temático");
-
-                           key_menu_crud = true;
+                           delete_functions.delete_thematic(th);
 
                            break;
 
-                      case 3:
-
-                           JOptionPane.showMessageDialog(null, "Delete Temático");
-
-                           key_menu_crud = true;
-
-                           break;
-
-                      case 4:
+                      case 4: //VOLVER
 
                            JOptionPane.showMessageDialog(null, "Volver Temático");
 
@@ -155,7 +141,7 @@ public class menu_makeup {
 
                            break;
 
-                      case 5:
+                      case 5: //SALIR
 
                           JOptionPane.showMessageDialog(null, "Salir Temático");
 
@@ -170,7 +156,7 @@ public class menu_makeup {
 
                   break;
 
-                case 2:
+                case 2: //Events
 
 
                   do {

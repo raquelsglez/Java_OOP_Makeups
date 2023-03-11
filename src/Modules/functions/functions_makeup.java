@@ -81,6 +81,7 @@ public class functions_makeup {
             int option_menu = 0;
 			
             boolean key = false;
+
             do{
 
                 option_menu = buttons.menu_buttons(menu, "Seleccione la operación deseada", "Elegir opción");
@@ -142,6 +143,77 @@ public class functions_makeup {
             }while(key != false);
 
         }
+
+        if (mak instanceof Thematic) {
+
+			String[] menu = { "Nombre del cliente", "Precio", "Lugar", "Hora", "Temática", "Salir" };
+			
+            int option_menu = 0;
+			
+            boolean key = false;
+            
+            do{
+
+                option_menu = buttons.menu_buttons(menu, "Seleccione la operación deseada", "Elegir opción");
+
+                key = true;
+
+                switch(option_menu){
+
+                    case 0: //Nombre//
+
+                         String customer_name = data_functions.ask_customer_name("¿A qué nombre quiere que esté el servicio?", "Nombre");
+
+                         mak.setCustomer_name(customer_name);
+
+                         break;
+
+                    case 1: //Precio//
+
+                         int price = validates.number("¿Qué precio va a tener el servicio?", "Precio");
+
+                         mak.setPrice(price);
+
+                         break;
+
+                    case 2:
+
+                         String place = validates.cad("¿En qué lugar se realizará?", "Lugar");
+
+                         mak.setPlace(place);
+
+                         break;
+
+                    case 3:
+
+                         String time = validates.cad("¿A qué hora se realizará?", "Hora");
+
+                         mak.setTime(time);
+
+                         break;
+
+                    case 4:
+                    
+                         String[] option_type = {"Animación", "Terror", "Fantasía"};
+
+                         String thematic_type = validates.combo(option_type, "¿Qué tipo de maquillaje quieres?", "Tipo" ); 
+
+                         ((Thematic) mak).setThematic_type(thematic_type);
+
+                         break;
+
+                    case 5:
+
+                         key = false;
+
+                         break;
+
+                }
+
+            }while(key != false);
+
+        }
+
 
     }
     
