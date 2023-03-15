@@ -3,6 +3,7 @@ package Modules.functions.CRUD;
 import javax.swing.JOptionPane;
 
 import Modules.makeup.classes.Basic;
+import Modules.makeup.classes.Events;
 import Modules.makeup.classes.Singleton;
 import Modules.makeup.classes.Thematic;
 import menus.buttons;
@@ -255,6 +256,131 @@ public class read_functions {
                           break;
 
                 } 
+
+            }while(key != false);
+
+        }
+
+    }
+
+    public static void read_events(Events ev) {
+
+        int option_menu = 0;
+        int option_atributo = 0;
+        String[] menu = {"All", "One to one", "Volver"};
+        String[] atributos = {"id", "customer_name", "price", "place", "time", "number_people", "Volver"};
+        String atributo = "";
+        Boolean key_atributos = false;
+        Boolean key = false;
+
+        if (Singleton.events.isEmpty()) {
+			JOptionPane.showMessageDialog(null, "No existe este servicio para poder ver sus características", "Error",
+					JOptionPane.ERROR_MESSAGE);
+
+        }else{
+
+            do{
+
+                option_menu = buttons.menu_buttons(menu, "¿Cuántos servicios quiere ver?", "Elija la opción deseada");
+
+                key = true;
+
+                switch(option_menu){
+
+                    case 0:
+
+					      for (int i = 0; i < Singleton.events.size(); i++) {
+
+						      String cad = (Singleton.events.get(i).toString());
+
+						      JOptionPane.showMessageDialog(null, cad);
+
+                            }
+
+                           break;
+
+                    case 1:
+                        
+                        int location = 0;
+
+                        ev = functions_makeup.events_id("¿Cuál es el identificador del servicio que desea ver?");
+
+					    location = find_functions.find_events(ev);
+
+                        if (location != -1) {
+
+                            ev = Singleton.events.get(location);
+
+                            key_atributos = true;
+
+                            do{
+
+                               option_atributo = buttons.menu_buttons(atributos, "¿Que característica quiere leer?","Elija la opción deseada");
+
+                                switch (option_atributo){
+
+                                    case 0:
+
+                                         atributo = ("id: " + ev.getId());
+
+                                         break;
+
+                                    case 1:
+
+                                         atributo = ("customer_name: " + ev.getCustomer_name());
+
+                                         break;
+                            
+                                    case 2:
+
+                                         atributo = ("price: " + ev.getPrice());
+
+                                        break;
+
+                                    case 3:
+
+                                         atributo = ("place: " + ev.getPlace());
+
+                                         break;
+
+                                    case 4:
+
+                                         atributo = ("time: " + ev.getTime());
+
+                                         break;
+                            
+                                    case 5:
+
+                                         atributo = ("number_people: " + ev.getNumber_people());
+
+                                         break;
+
+                                     case 6:
+
+                                         atributo = ("Volver");
+
+                                         key_atributos = false;
+
+                                         break;
+                                }
+
+                                JOptionPane.showMessageDialog(null, atributo);
+
+                            }while(key_atributos != false);
+
+                        }else{
+
+                            JOptionPane.showMessageDialog(null, "No existe este código en ningún servicio", "Error",
+								JOptionPane.ERROR_MESSAGE);
+                        }
+
+                    case 2:
+
+                     key = false;
+                     break;
+                    
+                }
+
 
             }while(key != false);
 

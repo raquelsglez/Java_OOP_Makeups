@@ -121,5 +121,59 @@ public class order_functions{
         }
 
     }
-    
+   
+    public static void order_events(){
+
+        String[] menu = {"Identificador", "Nombre del cliente", "Lugar", "Salir"};
+        Boolean key = false;
+
+        if (Singleton.events.isEmpty()) {
+
+			JOptionPane.showMessageDialog(null, "No existen servicios para poder ordenarlos", "Error",
+					JOptionPane.ERROR_MESSAGE);
+
+        }else if (Singleton.events.size() == 1){
+
+            JOptionPane.showMessageDialog(null, "Solo existe un servicio y por lo tanto no se puede ordenar", "Error",
+					JOptionPane.ERROR_MESSAGE);
+
+        }else{
+
+            do{
+
+                int option_menu = buttons.menu_buttons(menu, "Seleccione el orden que usted desee", "Elija la opción deseada");
+                
+                key = true;
+                
+                switch(option_menu){
+
+                    case 0:
+                        Collections.sort(Singleton.events, new id_order());
+
+                        break;
+
+                    case 1:
+
+                        Collections.sort(Singleton.events, new customer_name_order());
+                   
+                        break;
+
+                    case 2:
+
+                        Collections.sort(Singleton.events, new place_order());
+
+                        break;
+
+                    case 3:
+                        key = false;
+
+                        break;
+
+                }
+
+            }while(key != false);
+
+        }
+
+    }
 }

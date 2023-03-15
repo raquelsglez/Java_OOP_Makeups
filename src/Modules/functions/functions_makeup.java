@@ -6,6 +6,7 @@ import Modules.makeup.utils.data_functions;
 import Utils.validates;
 import menus.buttons;
 import Modules.makeup.classes.Basic;
+import Modules.makeup.classes.Events;
 import Modules.makeup.classes.Makeup;
 
 
@@ -13,7 +14,7 @@ public class functions_makeup {
 
     public static Basic create_basic() {
 
-		String id = Singleton.id;
+	   String id = Singleton.id;
 
         String customer_name = data_functions.ask_customer_name("¿A qué nombre quiere que esté el servicio?", "Nombre");
         
@@ -29,12 +30,12 @@ public class functions_makeup {
 
         return new Basic(id, customer_name, price, place, time, type); 
 
-    }
+     }
 
 
     public static Thematic create_thematic() {
 
-		String id = Singleton.id;
+	   String id = Singleton.id;
 
         String customer_name = data_functions.ask_customer_name("¿A qué nombre quiere que esté el servicio?", "Nombre");
         
@@ -50,7 +51,25 @@ public class functions_makeup {
 
         return new Thematic(id, customer_name, price, place, time, thematic_type); 
 
-    }
+     }
+
+     public static Events create_events() {
+
+	   String id = Singleton.id;
+
+        String customer_name = data_functions.ask_customer_name("¿A qué nombre quiere que esté el servicio?", "Nombre");
+        
+        int price = validates.number("¿Qué precio va a tener el servicio?", "Precio");
+
+        String place = validates.cad("¿En qué lugar se realizará?", "Lugar");
+
+        String time = validates.cad("¿A qué hora se realizará?", "Hora");
+
+        int number_people = validates.number("¿Cuántas personas habrán?", "Número de personas");
+
+        return new Events(id, customer_name, price, place, time, number_people); 
+
+     }
 
     public static Basic basic_id(String message){
         
@@ -59,7 +78,7 @@ public class functions_makeup {
         Singleton.id = id;
 
         return new Basic(id);
-    }
+     }
 
 
     public static Thematic thematic_id(String message){
@@ -69,7 +88,16 @@ public class functions_makeup {
         Singleton.id = id;
 
         return new Thematic(id);
-    }
+     }
+
+     public static Events events_id(String message){
+        
+          String id = data_functions.ask_id(message, "Identificador");
+            
+          Singleton.id = id;
+  
+          return new Events(id);
+     }
 
 
     public static void update(Makeup mak) {
@@ -142,7 +170,7 @@ public class functions_makeup {
 
             }while(key != false);
 
-        }
+          }
 
         if (mak instanceof Thematic) {
 
@@ -212,7 +240,75 @@ public class functions_makeup {
 
             }while(key != false);
 
-        }
+          }
+
+     if (mak instanceof Events) {
+
+       String[] menu = { "Nombre del cliente", "Precio", "Lugar", "Hora", "Número de personas", "Salir" };
+          
+       int option_menu = 0;
+          
+       boolean key = false;
+       
+       do{
+
+           option_menu = buttons.menu_buttons(menu, "Seleccione la operación deseada", "Elegir opción");
+
+           key = true;
+
+           switch(option_menu){
+
+               case 0: //Nombre//
+
+                    String customer_name = data_functions.ask_customer_name("¿A qué nombre quiere que esté el servicio?", "Nombre");
+
+                    mak.setCustomer_name(customer_name);
+
+                    break;
+
+               case 1: //Precio//
+
+                    int price = validates.number("¿Qué precio va a tener el servicio?", "Precio");
+
+                    mak.setPrice(price);
+
+                    break;
+
+               case 2:
+
+                    String place = validates.cad("¿En qué lugar se realizará?", "Lugar");
+
+                    mak.setPlace(place);
+
+                    break;
+
+               case 3:
+
+                    String time = validates.cad("¿A qué hora se realizará?", "Hora");
+
+                    mak.setTime(time);
+
+                    break;
+
+               case 4:
+               
+                    int number_people = validates.number("¿Cuántas personas serán?", "Número de personas");
+
+                    ((Events) mak).setNumber_people(number_people);
+
+                    break;
+
+               case 5:
+
+                    key = false;
+
+                    break;
+
+           }
+
+       }while(key != false);
+
+   }
 
 
     }
